@@ -1,0 +1,124 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Empresa {
+  id               Int               @id @default(autoincrement())
+  nome             String
+  ticker           String            @unique
+  setor            String
+  cotacaoAtual     Float
+
+  // Relacionamentos
+  valuation        Valuation?
+  rentabilidade    Rentabilidade?
+  crescimento      Crescimento?
+  precoTeto        PrecoTeto?
+  analises         Analise[]
+  historicoPrecos  HistoricoPrecos[]
+  portfolios       PortfolioEmpresa[]
+
+  createdAt        DateTime          @default(now())
+}
+
+model Valuation {
+  id          Int      @id @default(autoincrement())
+  pl          Float
+  pvp         Float
+  dlpl        Float
+  dlEbitda    Float
+  evEbitda    Float
+
+  empresaId   Int      @unique
+  empresa     Empresa  @relation(fields: [empresaId], references: [id])
+}
+
+model Rentabilidade {
+  id              Int      @id @default(autoincrement())
+  roe             Float
+  margemLiquida   Float
+  dyAtual         Float
+  dy5Anos         Float
+
+  empresaId       Int      @unique
+  empresa         Empresa  @relation(fields: [empresaId], references: [id])
+}
+
+model Crescimento {
+  id                  Int     @id @default(autoincrement())
+  cagrReceitaAtual    Float
+  cagrReceita3Anos    Float
+  cagrReceita6Anos    Float
+  cagrLucroAtual      Float
+  cagrLucro3Anos      Float
+  cagrLucro6Anos      Float
+
+  empresaId           Int     @unique
+  empresa             Empresa @relation(fields: [empresaId], references: [id])
+}
+
+model PrecoTeto {
+  id                        Int     @id @default(autoincrement())
+  precoTetoBazin            Float
+  margemSegurancaBazin      Float
+  precoTetoGraham           Float
+  margemSegurancaGraham     Float
+
+  empresaId                 Int     @unique
+  empresa                   Empresa @relation(fields: [empresaId], references: [id])
+}
+
+model Analise {
+  id              Int      @id @default(autoincrement())
+  dataAnalise     DateTime
+  recomendacao    String
+  justificativa   String
+  pontuacao       Float
+
+  empresaId       Int
+  empresa         Empresa  @relation(fields: [empresaId], references: [id])
+}
+
+model HistoricoPrecos {
+  id         Int      @id @default(autoincrement())
+  data       DateTime
+  preco      Float
+  volume     Float
+
+  empresaId  Int
+  empresa    Empresa  @relation(fields: [empresaId], references: [id])
+}
+
+model Portfolio {
+  id            Int                 @id @default(autoincrement())
+  nome          String
+  dataCriacao   DateTime
+  valorTotal    Float
+
+  empresas      PortfolioEmpresa[]
+
+  createdAt     DateTime            @default(now())
+}
+
+model PortfolioEmpresa {
+  id           Int        @id @default(autoincrement())
+  portfolioId  Int
+  empresaId    Int
+
+  portfolio    Portfolio  @relation(fields: [portfolioId], references: [id])
+  empresa      Empresa    @relation(fields: [empresaId], references: [id])
+
+  @@unique([portfolioId, empresaId]) // Impede duplicatas
+}

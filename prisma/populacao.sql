@@ -1,0 +1,274 @@
+-- -- 1. Inserir Empresas
+-- INSERT INTO Empresa (nome, ticker, setor, cotacaoAtual, createdAt) VALUES
+-- ('Petróleo Brasileiro S.A.', 'PETR4', 'Petróleo e Gás', 32.45, NOW()),
+-- ('Vale S.A.', 'VALE3', 'Mineração', 65.80, NOW()),
+-- ('Itaú Unibanco Holding S.A.', 'ITUB4', 'Bancos', 25.30, NOW()),
+-- ('Banco Bradesco S.A.', 'BBDC4', 'Bancos', 18.75, NOW()),
+-- ('Banco do Brasil S.A.', 'BBAS3', 'Bancos', 28.90, NOW()),
+-- ('Ambev S.A.', 'ABEV3', 'Bebidas', 14.20, NOW()),
+-- ('Telefônica Brasil S.A.', 'VIVT3', 'Telecomunicações', 45.60, NOW()),
+-- ('Companhia Siderúrgica Nacional', 'CSNA3', 'Siderurgia', 18.35, NOW()),
+-- ('Usinas Siderúrgicas de Minas Gerais', 'USIM5', 'Siderurgia', 8.75, NOW()),
+-- ('Eletrobrás', 'ELET3', 'Energia Elétrica', 42.10, NOW()),
+-- ('Magazine Luiza S.A.', 'MGLU3', 'Varejo', 12.80, NOW()),
+-- ('Via S.A.', 'VIIA3', 'Varejo', 6.45, NOW()),
+-- ('JBS S.A.', 'JBSS3', 'Alimentos', 35.25, NOW()),
+-- ('WEG S.A.', 'WEGE3', 'Máquinas e Equipamentos', 52.30, NOW()),
+-- ('Suzano S.A.', 'SUZB3', 'Papel e Celulose', 48.90, NOW()),
+-- ('Lojas Americanas S.A.', 'LAME4', 'Varejo', 3.25, NOW()),
+-- ('Gerdau S.A.', 'GGBR4', 'Siderurgia', 24.15, NOW()),
+-- ('Banco Santander Brasil S.A.', 'SANB11', 'Bancos', 35.80, NOW()),
+-- ('Engie Brasil Energia S.A.', 'EGIE3', 'Energia Elétrica', 38.45, NOW()),
+-- ('Klabin S.A.', 'KLBN11', 'Papel e Celulose', 22.70, NOW());
+
+-- -- 2. Inserir dados de Valuation
+-- INSERT INTO Valuation (pl, pvp, dlpl, dlEbitda, evEbitda, empresaId) VALUES
+-- (8.5, 1.2, 0.35, 2.1, 3.8, 1),   -- PETR4
+-- (12.3, 1.8, 0.28, 1.5, 4.2, 2),  -- VALE3
+-- (9.2, 1.5, 0.42, 3.2, 5.1, 3),   -- ITUB4
+-- (8.8, 1.3, 0.38, 2.9, 4.8, 4),   -- BBDC4
+-- (10.1, 1.4, 0.40, 3.1, 5.0, 5),  -- BBAS3
+-- (15.6, 2.1, 0.25, 1.8, 6.2, 6),  -- ABEV3
+-- (18.3, 1.7, 0.32, 2.3, 7.1, 7),  -- VIVT3
+-- (6.7, 0.9, 0.52, 3.8, 4.5, 8),   -- CSNA3
+-- (5.2, 0.8, 0.58, 4.1, 3.9, 9),   -- USIM5
+-- (22.1, 1.9, 0.18, 1.2, 8.3, 10), -- ELET3
+-- (45.2, 3.2, 0.15, 0.8, 12.1, 11), -- MGLU3
+-- (28.7, 2.8, 0.22, 1.1, 9.8, 12), -- VIIA3
+-- (11.4, 1.6, 0.31, 2.2, 5.8, 13), -- JBSS3
+-- (25.8, 2.5, 0.12, 0.9, 15.2, 14), -- WEGE3
+-- (13.9, 1.7, 0.29, 1.9, 6.7, 15), -- SUZB3
+-- (35.8, 2.9, 0.45, 2.8, 8.9, 16), -- LAME4
+-- (7.2, 1.1, 0.48, 3.5, 4.1, 17), -- GGBR4
+-- (11.5, 1.8, 0.41, 3.0, 5.5, 18), -- SANB11
+-- (19.8, 2.2, 0.22, 1.6, 7.8, 19), -- EGIE3
+-- (16.4, 1.9, 0.26, 1.7, 6.9, 20); -- KLBN11
+
+-- -- 3. Inserir dados de Rentabilidade
+-- INSERT INTO Rentabilidade (roe, margemLiquida, dyAtual, dy5Anos, empresaId) VALUES
+-- (14.2, 12.5, 8.5, 7.2, 1),   -- PETR4
+-- (15.8, 18.3, 6.2, 5.8, 2),   -- VALE3
+-- (16.5, 22.1, 4.5, 4.2, 3),   -- ITUB4
+-- (14.8, 20.3, 4.8, 4.5, 4),   -- BBDC4
+-- (13.9, 19.5, 5.1, 4.8, 5),   -- BBAS3
+-- (12.3, 15.8, 3.2, 3.8, 6),   -- ABEV3
+-- (11.7, 8.9, 6.5, 6.8, 7),    -- VIVT3
+-- (8.9, 6.2, 2.1, 2.8, 8),     -- CSNA3
+-- (7.2, 4.8, 1.8, 2.2, 9),     -- USIM5
+-- (18.5, 14.2, 4.2, 3.9, 10),  -- ELET3
+-- (22.1, 3.8, 0.0, 0.0, 11),   -- MGLU3
+-- (15.8, 2.1, 0.0, 0.0, 12),   -- VIIA3
+-- (13.2, 8.5, 3.8, 4.1, 13),   -- JBSS3
+-- (19.8, 18.9, 2.1, 2.5, 14),  -- WEGE3
+-- (16.3, 11.2, 4.8, 4.5, 15),  -- SUZB3
+-- (8.5, 1.2, 0.0, 1.2, 16),    -- LAME4
+-- (9.8, 5.8, 2.5, 3.1, 17),    -- GGBR4
+-- (12.8, 18.5, 5.2, 4.9, 18),  -- SANB11
+-- (15.2, 12.8, 5.8, 5.5, 19),  -- EGIE3
+-- (14.5, 9.8, 3.2, 3.8, 20);   -- KLBN11
+
+-- -- 4. Inserir dados de Crescimento
+-- INSERT INTO Crescimento (cagrReceitaAtual, cagrReceita3Anos, cagrReceita6Anos, cagrLucroAtual, cagrLucro3Anos, cagrLucro6Anos, empresaId) VALUES
+-- (8.5, 12.3, 15.2, 18.2, 22.1, 25.8, 1),   -- PETR4
+-- (12.8, 18.5, 22.1, 25.3, 28.9, 32.1, 2),  -- VALE3
+-- (5.2, 8.9, 12.5, 12.8, 15.2, 18.9, 3),    -- ITUB4
+-- (4.8, 7.2, 11.8, 11.5, 14.8, 17.2, 4),    -- BBDC4
+-- (6.1, 9.8, 13.2, 13.9, 16.5, 19.8, 5),    -- BBAS3
+-- (3.2, 5.8, 8.9, 8.5, 11.2, 14.5, 6),      -- ABEV3
+-- (2.1, 4.5, 7.8, 7.2, 9.8, 12.1, 7),       -- VIVT3
+-- (15.8, 22.1, 28.9, 32.1, 38.5, 45.2, 8),  -- CSNA3
+-- (18.9, 25.8, 32.1, 35.8, 42.1, 48.9, 9),  -- USIM5
+-- (8.9, 12.5, 16.8, 18.5, 22.8, 26.5, 10),  -- ELET3
+-- (-12.5, -8.9, -5.2, -18.9, -15.2, -12.1, 11), -- MGLU3
+-- (-15.8, -12.1, -8.5, -22.1, -18.5, -14.8, 12), -- VIIA3
+-- (9.8, 14.2, 18.5, 22.1, 25.8, 29.5, 13),  -- JBSS3
+-- (12.1, 16.8, 21.2, 25.8, 29.5, 33.2, 14), -- WEGE3
+-- (7.8, 11.5, 15.2, 18.9, 22.5, 26.1, 15),  -- SUZB3
+-- (-8.9, -5.2, -1.8, -12.5, -9.8, -6.2, 16), -- LAME4
+-- (11.2, 16.5, 21.8, 25.2, 29.8, 34.1, 17), -- GGBR4
+-- (6.8, 10.2, 14.5, 15.8, 19.2, 22.8, 18),  -- SANB11
+-- (9.5, 13.8, 17.2, 20.5, 24.1, 27.8, 19),  -- EGIE3
+-- (8.2, 12.8, 16.5, 19.8, 23.5, 27.1, 20);  -- KLBN11
+
+-- -- 5. Inserir dados de Preço Teto
+-- INSERT INTO PrecoTeto (precoTetoBazin, margemSegurancaBazin, precoTetoGraham, margemSegurancaGraham, empresaId) VALUES
+-- (45.80, 41.2, 52.30, 61.2, 1),   -- PETR4
+-- (89.50, 36.0, 95.20, 44.7, 2),   -- VALE3
+-- (35.80, 41.5, 42.10, 66.4, 3),   -- ITUB4
+-- (28.90, 54.1, 32.50, 73.3, 4),   -- BBDC4
+-- (42.10, 45.7, 48.90, 69.2, 5),   -- BBAS3
+-- (18.50, 30.3, 21.80, 53.5, 6),   -- ABEV3
+-- (65.20, 43.0, 72.80, 59.6, 7),   -- VIVT3
+-- (22.10, 20.4, 28.90, 57.4, 8),   -- CSNA3
+-- (12.80, 46.3, 18.50, 111.4, 9),  -- USIM5
+-- (58.90, 39.9, 68.20, 62.1, 10),  -- ELET3
+-- (8.50, -50.6, 15.20, 18.8, 11),  -- MGLU3
+-- (4.20, -53.5, 8.90, 38.0, 12),   -- VIIA3
+-- (52.80, 49.9, 58.90, 67.2, 13),  -- JBSS3
+-- (72.10, 37.9, 89.50, 71.2, 14),  -- WEGE3
+-- (68.50, 40.1, 75.20, 53.8, 15),  -- SUZB3
+-- (2.10, -54.8, 5.80, 78.5, 16),   -- LAME4
+-- (38.90, 61.1, 42.50, 76.0, 17),  -- GGBR4
+-- (52.80, 47.5, 58.90, 64.5, 18),  -- SANB11
+-- (58.20, 51.4, 65.80, 71.2, 19),  -- EGIE3
+-- (35.80, 57.7, 42.10, 85.5, 20);  -- KLBN11
+
+-- -- 6. Inserir análises recentes
+-- INSERT INTO Analise (dataAnalise, recomendacao, justificativa, pontuacao, empresaId) VALUES
+-- ('2024-12-15', 'COMPRA', 'Petrobras apresenta múltiplos atrativos e dividend yield elevado. Cenário positivo para commodities.', 8.5, 1),
+-- ('2024-12-14', 'COMPRA', 'Vale bem posicionada para recuperação da economia chinesa. Múltiplos baixos.', 8.2, 2),
+-- ('2024-12-13', 'MANTER', 'Itaú mantém solidez, mas setor bancário pode enfrentar pressões com mudanças na taxa de juros.', 7.0, 3),
+-- ('2024-12-12', 'COMPRA', 'Bradesco com múltiplos atrativos e boa distribuição de dividendos.', 7.8, 4),
+-- ('2024-12-11', 'MANTER', 'BB apresenta bons fundamentos, mas exposição ao setor público gera incertezas.', 6.5, 5),
+-- ('2024-12-10', 'VENDA', 'Ambev enfrenta pressão competitiva e crescimento limitado no mercado doméstico.', 4.5, 6),
+-- ('2024-12-09', 'MANTER', 'Vivo com dividend yield atrativo, mas crescimento limitado no setor de telecomunicações.', 6.0, 7),
+-- ('2024-12-08', 'COMPRA', 'CSN se beneficia da recuperação do setor siderúrgico e múltiplos baixos.', 7.5, 8),
+-- ('2024-12-07', 'COMPRA', 'Usiminas com potencial de recuperação e múltiplos muito atrativos.', 8.0, 9),
+-- ('2024-12-06', 'MANTER', 'Eletrobras com potencial, mas incertezas regulatórias limitam recomendação.', 6.8, 10),
+-- ('2024-12-05', 'VENDA', 'Magazine Luiza enfrenta desafios estruturais no e-commerce e alta competição.', 3.2, 11),
+-- ('2024-12-04', 'VENDA', 'Via com múltiplos problemas operacionais e alta alavancagem.', 2.8, 12),
+-- ('2024-12-03', 'COMPRA', 'JBS bem posicionada no mercado global de proteínas com múltiplos atrativos.', 7.8, 13),
+-- ('2024-12-02', 'COMPRA', 'WEG com excelente qualidade e potencial de crescimento no setor industrial.', 9.2, 14),
+-- ('2024-12-01', 'MANTER', 'Suzano líder em celulose com bons fundamentos, mas setor cíclico.', 7.2, 15),
+-- ('2024-11-30', 'VENDA', 'Lojas Americanas com graves problemas financeiros e operacionais.', 1.5, 16),
+-- ('2024-11-29', 'COMPRA', 'Gerdau se beneficia da recuperação da construção civil e infraestrutura.', 7.6, 17),
+-- ('2024-11-28', 'MANTER', 'Santander Brasil com bons fundamentos, mas setor bancário em transição.', 6.9, 18),
+-- ('2024-11-27', 'MANTER', 'Engie com ativos de qualidade no setor elétrico, mas crescimento limitado.', 6.7, 19),
+-- ('2024-11-26', 'COMPRA', 'Klabin bem posicionada no mercado de embalagens com crescimento sustentável.', 7.9, 20);
+
+-- -- 7. Inserir histórico de preços (últimos 30 dias para algumas empresas)
+-- INSERT INTO HistoricoPrecos (data, preco, volume, empresaId) VALUES
+-- -- PETR4 - últimos 10 dias
+-- ('2024-12-15', 32.45, 45280000, 1),
+-- ('2024-12-14', 32.10, 38950000, 1),
+-- ('2024-12-13', 31.85, 42150000, 1),
+-- ('2024-12-12', 32.20, 48750000, 1),
+-- ('2024-12-11', 31.95, 35680000, 1),
+-- ('2024-12-10', 31.70, 41200000, 1),
+-- ('2024-12-09', 31.85, 39850000, 1),
+-- ('2024-12-08', 32.00, 44500000, 1),
+-- ('2024-12-07', 31.75, 37950000, 1),
+-- ('2024-12-06', 31.90, 43250000, 1),
+
+-- -- VALE3 - últimos 10 dias
+-- ('2024-12-15', 65.80, 28450000, 2),
+-- ('2024-12-14', 65.20, 31200000, 2),
+-- ('2024-12-13', 64.85, 29850000, 2),
+-- ('2024-12-12', 65.10, 32750000, 2),
+-- ('2024-12-11', 64.90, 27950000, 2),
+-- ('2024-12-10', 64.60, 30850000, 2),
+-- ('2024-12-09', 65.00, 29450000, 2),
+-- ('2024-12-08', 64.75, 31850000, 2),
+-- ('2024-12-07', 64.95, 28750000, 2),
+-- ('2024-12-06', 65.30, 33200000, 2),
+
+-- -- ITUB4 - últimos 10 dias
+-- ('2024-12-15', 25.30, 18950000, 3),
+-- ('2024-12-14', 25.10, 22150000, 3),
+-- ('2024-12-13', 24.95, 19850000, 3),
+-- ('2024-12-12', 25.20, 21750000, 3),
+-- ('2024-12-11', 25.05, 18650000, 3),
+-- ('2024-12-10', 24.85, 20950000, 3),
+-- ('2024-12-09', 25.00, 19450000, 3),
+-- ('2024-12-08', 24.90, 22850000, 3),
+-- ('2024-12-07', 25.15, 17950000, 3),
+-- ('2024-12-06', 25.25, 23150000, 3),
+
+-- -- WEGE3 - últimos 10 dias
+-- ('2024-12-15', 52.30, 8450000, 14),
+-- ('2024-12-14', 52.10, 9250000, 14),
+-- ('2024-12-13', 51.85, 7850000, 14),
+-- ('2024-12-12', 52.20, 8950000, 14),
+-- ('2024-12-11', 51.95, 7650000, 14),
+-- ('2024-12-10', 51.70, 8850000, 14),
+-- ('2024-12-09', 52.00, 8250000, 14),
+-- ('2024-12-08', 51.80, 9450000, 14),
+-- ('2024-12-07', 52.15, 7950000, 14),
+-- ('2024-12-06', 52.40, 9850000, 14);
+
+-- -- 8. Criar alguns portfólios de exemplo
+-- INSERT INTO Portfolio (nome, dataCriacao, valorTotal, createdAt) VALUES
+-- ('Carteira Conservadora', '2024-01-15', 150000.00, NOW()),
+-- ('Carteira Dividendos', '2024-02-20', 200000.00, NOW()),
+-- ('Carteira Crescimento', '2024-03-10', 100000.00, NOW()),
+-- ('Carteira Value', '2024-04-05', 180000.00, NOW()),
+-- ('Carteira Setorial - Bancos', '2024-05-15', 120000.00, NOW());
+
+-- -- 9. Associar empresas aos portfólios
+-- INSERT INTO PortfolioEmpresa (portfolioId, empresaId) VALUES
+-- -- Carteira Conservadora
+-- (1, 3),  -- ITUB4
+-- (1, 4),  -- BBDC4
+-- (1, 6),  -- ABEV3
+-- (1, 7),  -- VIVT3
+-- (1, 14), -- WEGE3
+
+-- -- Carteira Dividendos
+-- (2, 1),  -- PETR4
+-- (2, 2),  -- VALE3
+-- (2, 3),  -- ITUB4
+-- (2, 7),  -- VIVT3
+-- (2, 10), -- ELET3
+-- (2, 15), -- SUZB3
+
+-- -- Carteira Crescimento
+-- (3, 13), -- JBSS3
+-- (3, 14), -- WEGE3
+-- (3, 15), -- SUZB3
+-- (3, 17), -- GGBR4
+-- (3, 20), -- KLBN11
+
+-- -- Carteira Value
+-- (4, 1),  -- PETR4
+-- (4, 2),  -- VALE3
+-- (4, 8),  -- CSNA3
+-- (4, 9),  -- USIM5
+-- (4, 13), -- JBSS3
+
+-- -- Carteira Setorial - Bancos
+-- (5, 3),  -- ITUB4
+-- (5, 4),  -- BBDC4
+-- (5, 5),  -- BBAS3
+-- (5, 18); -- SANB11
+
+
+-- -- Verificar se os dados foram inseridos corretamente
+-- SELECT 'Empresas cadastradas:' as Info, COUNT(*) as Total FROM Empresa;
+-- SELECT 'Análises cadastradas:' as Info, COUNT(*) as Total FROM Analise;
+-- SELECT 'Portfólios criados:' as Info, COUNT(*) as Total FROM Portfolio;
+-- SELECT 'Histórico de preços:' as Info, COUNT(*) as Total FROM HistoricoPrecos;
+
+-- -- Consulta para verificar uma empresa completa
+-- SELECT 
+--     e.nome,
+--     e.ticker,
+--     e.setor,
+--     e.cotacaoAtual,
+--     v.pl,
+--     v.pvp,
+--     r.roe,
+--     r.dyAtual,
+--     pt.precoTetoBazin,
+--     pt.margemSegurancaBazin,
+--     a.recomendacao,
+--     a.pontuacao
+-- FROM Empresa e
+-- LEFT JOIN Valuation v ON e.id = v.empresaId
+-- LEFT JOIN Rentabilidade r ON e.id = r.empresaId
+-- LEFT JOIN PrecoTeto pt ON e.id = pt.empresaId
+-- LEFT JOIN Analise a ON e.id = a.empresaId
+-- WHERE e.ticker = 'PETR4';
+
+-- -- Consulta para ver portfólios
+-- SELECT 
+--     p.nome as Portfolio,
+--     e.ticker,historicoprecosportfolio
+--     e.nome as Empresa,
+--     e.cotacaoAtual,
+--     a.recomendacao,
+--     a.pontuacao
+-- FROM Portfolio p
+-- JOIN PortfolioEmpresa pe ON p.id = pe.portfolioId
+-- JOIN Empresa e ON pe.empresaId = e.id
+-- LEFT JOIN Analise a ON e.id = a.empresaId
+-- ORDER BY p.nome, e.ticker;
