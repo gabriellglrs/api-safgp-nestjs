@@ -11,6 +11,9 @@ import {
 import { EmpresaService } from './empresa.service';
 import { CreateEmpresaDto } from './DTO/create-empresa.dto';
 import { UpdateEmpresaDto } from './DTO/update-empresa.dto';
+import { ResponseEmpresaDto } from './DTO/response-empresa.dto';
+import { plainToInstance } from 'class-transformer';
+
 
 @Controller('empresas')
 export class EmpresaController {
@@ -22,8 +25,9 @@ export class EmpresaController {
   }
 
   @Get()
-  findAll() {
-    return this.empresaService.findAll();
+  async findAll() {
+    const empresas = await this.empresaService.findAll();
+    return plainToInstance(ResponseEmpresaDto, empresas);
   }
 
   @Get(':id')
@@ -44,4 +48,3 @@ export class EmpresaController {
     return this.empresaService.remove(id);
   }
 }
-
