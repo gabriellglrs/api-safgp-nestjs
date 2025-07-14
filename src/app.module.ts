@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { PrismaModule } from './prisma/prisma.module';
 import { EmpresaModule } from './empresa/empresa.module';
 import { ValuationModule } from './valuation/valuation.module';
@@ -14,7 +12,5 @@ import { HistoricoprecosModule } from './historicoprecos/historicoprecos.module'
 
 @Module({
   imports: [PrismaModule, EmpresaModule, ValuationModule, RentabilidadeModule, CrescimentoModule, PrecotetoModule, AnaliseModule, PortfolioModule, PortfolioempresaModule, HistoricoprecosModule],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {}
