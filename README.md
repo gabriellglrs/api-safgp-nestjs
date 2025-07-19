@@ -323,13 +323,13 @@ Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE](LICEN
 
 ## 👨‍💻 Autor
 
-Desenvolvido por [Seu Nome]
+Desenvolvido por Gabriel lucas rodrigues souza
 
 ## 📞 Suporte
 
-- Email: seu.email@exemplo.com
-- LinkedIn: [Seu LinkedIn]
-- Issues: [GitHub Issues](https://github.com/seu-usuario/investment-api/issues)
+- Email: gabriellglrs@gmail.com
+- LinkedIn: https://www.linkedin.com/in/gabriellglrs/
+- Issues: [GitHub Issues]([https://github.com/gabriellglrs/investment-api/issues)
 
 ---
 
