@@ -13,15 +13,6 @@ export class EmpresaService {
 
   findAll() {
     return this.prisma.empresa.findMany({
-      include: {
-        valuation: true,
-        // rentabilidade: true,
-        // crescimento: true,
-        // precoTeto: true,
-        // analises: true,
-        // historicoPrecos: true,
-        // portfolios: true,
-      },
     });
   }
 
@@ -29,8 +20,8 @@ export class EmpresaService {
     return this.prisma.empresa.findUnique({
       where: { id },
       include: {
-        valuation: true,
-        // rentabilidade: true,
+        // valuation: true,
+        // rentabilidade: false,
         // crescimento: true,
         // precoTeto: true,
         // analises: true,

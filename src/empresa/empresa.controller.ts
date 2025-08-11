@@ -14,7 +14,6 @@ import { UpdateEmpresaDto } from './DTO/update-empresa.dto';
 import { ResponseEmpresaDto } from './DTO/response-empresa.dto';
 import { plainToInstance } from 'class-transformer';
 
-
 @Controller('empresas')
 export class EmpresaController {
   constructor(private readonly empresaService: EmpresaService) {}
