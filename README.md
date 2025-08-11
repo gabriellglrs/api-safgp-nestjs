@@ -1,98 +1,345 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=4C89F8&height=120&section=header"/>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+<img width="1584" height="396" alt="LinkedIn cover - 29" src="https://github.com/user-attachments/assets/d1c05723-0bec-4ce7-8dee-1ef8c95ebf3e" />
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+<br>
+<br>
 
-## Description
+# 📈 API de Análise de Investimentos
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+[![Status do Projeto](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow.svg)]()
+[![NestJS](https://img.shields.io/badge/NestJS-v10-red.svg)]()
+[![Prisma](https://img.shields.io/badge/Prisma-ORM-blue.svg)]()
+[![MySQL](https://img.shields.io/badge/MySQL-Database-orange.svg)]()
 
-## Project setup
+## 📋 Descrição
 
+API REST desenvolvida em NestJS para análise fundamentalista de ações da bolsa de valores brasileira. O sistema permite o gerenciamento de empresas, cálculo de indicadores de valuation, rentabilidade, crescimento e análise de preços teto utilizando metodologias como Bazin e Graham.
+
+## 🚀 Funcionalidades Implementadas
+
+### ✅ Módulos Base
+- **Empresas**: CRUD completo para cadastro de empresas da bolsa
+  - Cadastro com nome, ticker, setor e cotação atual
+  - Validação de dados com class-validator
+  - Relacionamentos com todos os módulos de análise
+
+### 🔄 Módulos em Desenvolvimento
+- **Valuation**: Indicadores P/L, P/VP, Dívida/PL, Dívida/EBITDA, EV/EBITDA
+- **Rentabilidade**: ROE, Margem Líquida, Dividend Yield atual e histórico
+- **Crescimento**: CAGR de receita e lucro (atual, 3 anos, 6 anos)
+- **Preço Teto**: Cálculos Bazin e Graham com margem de segurança
+- **Análises**: Sistema de recomendações com pontuação
+- **Histórico de Preços**: Armazenamento de cotações e volumes
+- **Portfólios**: Gestão de carteiras de investimento
+
+## 🛠️ Tecnologias Utilizadas
+
+- **Backend**: Node.js, NestJS, TypeScript
+- **ORM**: Prisma
+- **Banco de Dados**: MySQL
+- **Validação**: class-validator, class-transformer
+- **Testes**: Jest
+- **Documentação**: Swagger (planejado)
+
+## 📦 Pré-requisitos
+
+- [Node.js](https://nodejs.org/) (versão 18 ou superior)
+- [npm](https://www.npmjs.com/) ou [yarn](https://yarnpkg.com/)
+- [MySQL](https://www.mysql.com/) (versão 8 ou superior)
+- [Git](https://git-scm.com/)
+
+## ⚡ Instalação e Configuração
+
+### 1. Clone o repositório
 ```bash
-$ npm install
+git clone https://github.com/seu-usuario/investment-api.git
+cd investment-api
 ```
 
-## Compile and run the project
-
+### 2. Instale as dependências
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+npm install
+# ou
+yarn install
 ```
 
-## Run tests
-
+### 3. Configure as variáveis de ambiente
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+cp .env.example .env
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+Edite o arquivo `.env` com suas configurações:
+```env
+DATABASE_URL="mysql://usuario:senha@localhost:3306/investment_db"
+PORT=3000
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### 4. Configure o banco de dados
+```bash
+# Gere o client Prisma
+npx prisma generate
 
-## Resources
+# Execute as migrações
+npx prisma migrate dev
 
-Check out a few resources that may come in handy when working with NestJS:
+# (Opcional) Visualize o banco com Prisma Studio
+npx prisma studio
+```
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+### 5. Execute a aplicação
+```bash
+# Desenvolvimento
+npm run start:dev
 
-## Support
+# Produção
+npm run build
+npm run start:prod
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## 📖 Uso da API
 
-## Stay in touch
+### Endpoints Disponíveis
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+#### Empresas
+```http
+POST   /empresas          # Criar empresa
+GET    /empresas          # Listar todas as empresas
+GET    /empresas/:id      # Buscar empresa por ID
+PUT    /empresas/:id      # Atualizar empresa
+DELETE /empresas/:id      # Remover empresa
+```
 
-## License
+#### Exemplo de Requisição
+```json
+POST /empresas
+{
+  "nome": "Petróleo Brasileiro S.A.",
+  "ticker": "PETR4",
+  "setor": "Petróleo e Gás",
+  "cotacaoAtual": 38.50
+}
+```
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+## 🏗️ Arquitetura do Projeto
+
+```
+src/
+├── empresa/           # Módulo principal - CRUD de empresas
+├── valuation/         # Indicadores de valuation
+├── rentabilidade/     # Métricas de rentabilidade
+├── crescimento/       # Indicadores de crescimento
+├── precoteto/         # Cálculos de preço justo
+├── analise/           # Sistema de recomendações
+├── portfolio/         # Gestão de carteiras
+├── portfolioempresa/  # Relação portfólio-empresa
+├── historicoprecos/   # Histórico de cotações
+└── prisma/           # Configuração do ORM
+```
+
+## 🧪 Testes
+
+```bash
+# Executar todos os testes
+npm run test
+
+# Testes em modo watch
+npm run test:watch
+
+# Cobertura de testes
+npm run test:cov
+```
+
+## 📊 Modelo de Dados
+
+O sistema utiliza as seguintes entidades principais:
+
+- **Empresa**: Dados básicos da empresa (nome, ticker, setor, cotação)
+- **Valuation**: Múltiplos de valuation (P/L, P/VP, etc.)
+- **Rentabilidade**: Indicadores de rentabilidade (ROE, margem líquida, DY)
+- **Crescimento**: Taxas de crescimento CAGR
+- **PrecoTeto**: Preços justos calculados (Bazin, Graham)
+- **Analise**: Recomendações de investimento
+- **HistoricoPrecos**: Série histórica de cotações
+- **Portfolio**: Carteiras de investimento
+
+## 🚀 Futuras Melhorias
+
+### 📈 Funcionalidades Planejadas
+
+#### Alta Prioridade
+- [ ] **Integração com APIs Financeiras**
+  - Consumo automático de dados da B3/Yahoo Finance
+  - Atualização automática de cotações
+  - Histórico automático de preços
+
+- [ ] **Sistema de Análise Fundamentalista Completo**
+  - Implementação completa dos cálculos de valuation
+  - Algoritmos de recomendação baseados em múltiplos indicadores
+  - Score de investimento automatizado
+
+- [ ] **Dashboard e Relatórios**
+  - Interface web para visualização dos dados
+  - Gráficos interativos de performance
+  - Relatórios em PDF
+
+#### Média Prioridade
+- [ ] **Autenticação e Autorização**
+  - Sistema de login com JWT
+  - Controle de acesso por perfis
+  - Proteção de rotas sensíveis
+
+- [ ] **Notificações e Alertas**
+  - Alertas de preço (máximo/mínimo)
+  - Notificações de eventos corporativos
+  - Alertas de recomendações
+
+- [ ] **API de Machine Learning**
+  - Predição de preços usando algoritmos ML
+  - Análise de sentimento de notícias
+  - Detecção de padrões técnicos
+
+#### Baixa Prioridade
+- [ ] **Aplicativo Mobile**
+  - App React Native
+  - Push notifications
+  - Modo offline
+
+- [ ] **Integrações Avançadas**
+  - Webhook para eventos de mercado
+  - Integração com corretoras (APIs)
+  - Importação de extratos
+
+### 🔧 Melhorias Técnicas
+
+#### Infraestrutura
+- [ ] **Containerização**
+  - Dockerfile otimizado
+  - Docker Compose para desenvolvimento
+  - Kubernetes para produção
+
+- [ ] **CI/CD**
+  - Pipeline GitHub Actions
+  - Testes automatizados
+  - Deploy automatizado
+
+- [ ] **Monitoramento**
+  - Logs estruturados (Winston)
+  - Métricas de performance (Prometheus)
+  - Health checks
+
+#### Performance e Escalabilidade
+- [ ] **Cache Inteligente**
+  - Redis para cache de cotações
+  - Cache de consultas frequentes
+  - Invalidação automática
+
+- [ ] **Otimizações de Banco**
+  - Índices estratégicos
+  - Queries otimizadas
+  - Read replicas
+
+- [ ] **Rate Limiting**
+  - Proteção contra abuso de API
+  - Throttling por usuário
+  - Quota de requisições
+
+#### Qualidade de Código
+- [ ] **Documentação Avançada**
+  - Swagger/OpenAPI completo
+  - Postman Collections
+  - Guias de uso detalhados
+
+- [ ] **Testes Abrangentes**
+  - Cobertura de testes > 80%
+  - Testes de integração
+  - Testes E2E
+
+- [ ] **Code Quality**
+  - ESLint + Prettier configurados
+  - Husky para pre-commit hooks
+  - SonarQube para análise estática
+
+### 📊 Funcionalidades Específicas do Domínio
+
+#### Análise Técnica
+- [ ] **Indicadores Técnicos**
+  - Médias móveis (SMA, EMA)
+  - RSI, MACD, Bollinger Bands
+  - Suporte e resistência automáticos
+
+#### Análise Fundamentalista Avançada
+- [ ] **Comparação Setorial**
+  - Benchmarking com peers
+  - Ranking por setor
+  - Análise relativa de múltiplos
+
+- [ ] **Análise de Governança**
+  - Score ESG
+  - Análise de insider trading
+  - Composição acionária
+
+#### Gestão de Risco
+- [ ] **Cálculos de Risco**
+  - VaR (Value at Risk)
+  - Correlação entre ativos
+  - Diversificação de portfólio
+
+### 🎯 Roadmap de Releases
+
+#### v1.0.0 - MVP (Q1 2024)
+- CRUD completo de empresas ✅
+- Módulos básicos de análise
+- API funcional
+
+#### v1.1.0 - Core Features (Q2 2024)
+- Integração com APIs financeiras
+- Cálculos de valuation completos
+- Sistema de recomendações
+
+#### v1.2.0 - Dashboard (Q3 2024)
+- Interface web básica
+- Gráficos e visualizações
+- Relatórios
+
+#### v2.0.0 - Advanced Features (Q4 2024)
+- Autenticação completa
+- Machine Learning
+- App mobile
+
+## 🤝 Contribuições
+
+Contribuições são bem-vindas! Por favor:
+
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
+
+## 📝 Licença
+
+Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## 👨‍💻 Autor
+
+Desenvolvido por Gabriel lucas rodrigues souza
+
+## 📞 Suporte
+
+- Email: gabriellglrs@gmail.com
+- LinkedIn: https://www.linkedin.com/in/gabriellglrs/
+- Issues: [GitHub Issues]([https://github.com/gabriellglrs/investment-api/issues)
+
+---
+
+⭐ Se este projeto foi útil para você, considere dar uma estrela no GitHub!
+
+ <br>
+
+ <br>
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/ed7208b8-6bdc-4c82-98aa-8c8cb9c1428f" height="150"/>
+</div>
+
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=4C89F8&height=120&section=footer"/>

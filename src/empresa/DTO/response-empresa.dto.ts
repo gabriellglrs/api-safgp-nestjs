@@ -3,14 +3,15 @@ import { Portfolio } from '../../../generated/prisma/index';
 
 @Exclude() // Exclui todos os campos por padrão
 export class ResponseEmpresaDto {
-  @Expose()
+  
+  @Expose() // Exclui o campo 'id' por padrão, mas o expõe explicitamente
   id: number;
-  @Expose()
+  @Expose() // Exclui o campo 'nome' por padrão, mas o expõe explicitamente
   nome: string;
-  @Expose()
+  @Expose() // Exclui o campo 'ticker' por padrão, mas o expõe explicitamente
   ticker: string;
-  @Expose()
+  @Expose() // Exclui o campo 'setor' por padrão, mas o expõe explicitamente
   setor: string;
-  @Expose()
+  @Expose() // Exclui o campo 'cotacaoAtual' por padrão, mas o expõe explicitamente
   cotacaoAtual: number;
 }

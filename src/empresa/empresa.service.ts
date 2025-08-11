@@ -11,28 +11,28 @@ export class EmpresaService {
     return this.prisma.empresa.create({ data });
   }
 
-  findAll() {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return this.prisma.empresa.findMany({
-      include: {
-        valuation: true,
-        // rentabilidade: true,
-        // crescimento: true,
-        // precoTeto: true,
-        // analises: true,
-        // historicoPrecos: true,
-        // portfolios: true,
-      },
-    // eslint-disable-next-line prettier/prettier
-    });
-  }
+findAll() {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+  return this.prisma.empresa.findMany({
+    include: {
+      valuation: true,
+      // rentabilidade: true,
+      // crescimento: true,
+      // precoTeto: true,
+      // analises: true,
+      // historicoPrecos: true,
+      // portfolios: true,
+    },
+  });
+}
+
 
   findOne(id: number) {
     return this.prisma.empresa.findUnique({
       where: { id },
       include: {
-        valuation: true,
-        // rentabilidade: true,
+        // valuation: true,
+        // rentabilidade: false,
         // crescimento: true,
         // precoTeto: true,
         // analises: true,
