@@ -1,4 +1,5 @@
 import { Exclude, Expose } from 'class-transformer';
+import { Portfolio } from '../../../generated/prisma/index';
 
 @Exclude() // Exclui todos os campos por padrão
 export class ResponseEmpresaDto {

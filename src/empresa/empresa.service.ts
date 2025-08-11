@@ -12,6 +12,7 @@ export class EmpresaService {
   }
 
   findAll() {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return this.prisma.empresa.findMany({
       include: {
         valuation: true,
@@ -22,6 +23,7 @@ export class EmpresaService {
         // historicoPrecos: true,
         // portfolios: true,
       },
+    // eslint-disable-next-line prettier/prettier
     });
   }
 
