@@ -1,4 +1,10 @@
-import { Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  HttpException,
+  HttpStatus,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreatePortfolioDto } from './DTO/portfolio.dto';
 
@@ -19,12 +25,24 @@ export class PortfolioService {
   }
 
   async findOne(id: number) {
-    return this.prisma.portfolio.findUnique({
+    const portfolio = await this.prisma.portfolio.findUnique({
       where: { id },
       include: {
         empresas: true, // Inclui as empresas associadas ao portfólio
       },
     });
+
+    if (!portfolio) {
+      // 404 - Not Found
+      throw new HttpException(`Portfólio com ID ${id} não encontrado`, HttpStatus.NOT_FOUND);
+    }
+
+    if (id <= 0) {
+      // 400 - Bad Request
+      throw new HttpException('O ID não pode ser negativo', HttpStatus.BAD_REQUEST);
+    }
+
+    return portfolio;
   }
 
   async update(id: number, data: CreatePortfolioDto) {
